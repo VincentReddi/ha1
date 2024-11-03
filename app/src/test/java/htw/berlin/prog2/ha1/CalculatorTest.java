@@ -110,9 +110,20 @@ class CalculatorTest {
 
     }
 
+    @Test
+    @DisplayName("should display result after subtracting two positive multi-digit numbers")
+    void testEqualsAfterNoNewOperation(){
 
+        Calculator calc = new Calculator();
 
+        calc.pressDigitKey(5);
 
+        calc.pressEqualsKey();
 
+        String expected = "5";
+        String actual = calc.readScreen();
 
+        assertEquals(expected, actual);
+
+    }
 }
