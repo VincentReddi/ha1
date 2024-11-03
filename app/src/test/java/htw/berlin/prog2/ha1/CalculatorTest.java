@@ -126,4 +126,27 @@ class CalculatorTest {
         assertEquals(expected, actual);
 
     }
+
+    @Test
+    @DisplayName("should display result after more then 2 Operations")
+    void testMoreThenTwoOperations(){
+
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(5);
+        calc.pressBinaryOperationKey("-");
+        calc.pressDigitKey(5);
+        calc.pressDigitKey(0);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(5);
+        calc.pressDigitKey(0);
+        calc.pressDigitKey(0);
+        calc.pressEqualsKey();
+
+        String expected = "455";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+
+    }
 }
