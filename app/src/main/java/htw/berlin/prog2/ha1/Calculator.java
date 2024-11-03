@@ -119,7 +119,9 @@ public class Calculator {
      */
     public void pressEqualsKey() {
 
-
+        if (latestOperation.isEmpty()) {
+            return;
+        }
 
         var result = switch(latestOperation) {
             case "+" -> latestValue + Double.parseDouble(screen);
@@ -132,6 +134,5 @@ public class Calculator {
         if(screen.equals("Infinity")) screen = "Error";
         if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
         if(screen.contains(".") && screen.length() > 11) screen = screen.substring(0, 10);
-
     }
 }
